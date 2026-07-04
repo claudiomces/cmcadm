@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMC Soluções Administrativas</title>
+    <style>
+        /* --- Configurações Globais e Paleta de Cores --- */
+        :root {
+            --bg-principal: #0f172a;
+            --bg-card: #1e293b;
+            --texto-claro: #f8fafc;
+            --texto-mutado: #94a3b8;
+            --azul-escuro: #0f4c81;
+            --turquesa: #00f2fe;
+            --turquesa-degrafil: linear-gradient(135deg, #00cdac 0%, #028090 100%);
+            --gradiente-efeito: linear-gradient(45deg, #00f2fe, #4facfe);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-claro);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* --- Barra de Navegação Fina e Elegante --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--texto-mutado);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--turquesa);
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+        }
+
+        /* --- Seções Base --- */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 6rem 2rem 4rem 2rem;
+            text-align: center;
+        }
+
+        /* --- SEÇÃO 1: Boas-Vindas (Home) --- */
+        #home {
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+
+        .logo-container {
+            max-width: 450px;
+            width: 100%;
+            margin-bottom: 2rem;
+            animation: fatiarEntrada 1s ease-out;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+        }
+
+        .boas-vindas-titulo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(120deg, #ffffff, var(--texto-mutado));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .boas-vindas-sub {
+            font-size: 1.2rem;
+            color: var(--turquesa);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .btn-principal {
+            background: var(--gradiente-efeito);
+            color: #0f172a;
+            box-shadow: 0 4px 15px rgba(47, 184, 255, 0.4);
+        }
+
+        .btn-principal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.6);
+        }
+
+        .btn-secundario {
+            border: 2px solid var(--texto-mutado);
+            color: var(--texto-claro);
+        }
+
+        .btn-secundario:hover {
+            border-color: var(--turquesa);
+            color: var(--turquesa);
+            transform: translateY(-3px);
+        }
+
+        /* --- SEÇÃO 2: Sobre o Site --- */
+        #sobre {
+            background-color: #0b111e;
+        }
+
+        .card-sobre {
+            background: var(--bg-card);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            max-width: 700px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-sobre::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradiente-efeito);
+        }
+
+        .card-sobre p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: #e2e8f0;
+        }
+
+        /* --- SEÇÃO 3: Contato (Formulário Impactante) --- */
+        #contato {
+            background: radial-gradient(circle at bottom, #1e293b 0%, #0f172a 100%);
+        }
+
+        .form-container {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 3rem;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-container h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        /* Efeito de Input Flutuante e Futurista */
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 0;
+            font-size: 1rem;
+            color: #fff;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--texto-mutado);
+            outline: none;
+            transition: all 0.3s ease;
+            resize: none;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 12px;
+            left: 0;
+            font-size: 1rem;
+            color: var(--texto-mutado);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Animação do Label e Linha ao focar ou preencher */
+        .form-group input:focus ~ label,
+        .form-group input:valid ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group textarea:valid ~ label {
+            top: -12px;
+            font-size: 0.85rem;
+            color: var(--turquesa);
+            font-weight: 600;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-bottom: 2px solid var(--turquesa);
+        }
+
+        /* Efeito barra de luz sob o input focado */
+        .form-group::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradiente-efeito);
+            transition: all 0.4s ease;
+        }
+
+        .form-group:focus-within::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Botão Enviar com Efeito Magnético de Brilho */
+        .btn-enviar {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: var(--gradiente-efeito);
+            color: #0f172a;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn-enviar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(0, 242, 254, 0.5);
+            letter-spacing: 3px;
+        }
+
+        .btn-enviar:active {
+            transform: translateY(1px);
+        }
+
+        /* --- Animações --- */
+        @keyframes fatiarEntrada {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Responsividade (Mobile) --- */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .boas-vindas-titulo {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                text-align: center;
+            }
+
+            .form-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div style="font-weight: 800; font-size: 1.2rem; color: #fff;">CMC</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="logo-container">
+            <img src="logo.png" alt="CMC Serviços Logo">
+        </div>
+        <h1 class="boas-vindas-titulo">CMC Soluções Administrativas</h1>
+        <p class="boas-vindas-sub">Tecnologia • Planejamento • Dados</p>
+        
+        <div class="cta-buttons">
+            <a href="#sobre" class="btn btn-secundario">Sobre o Site</a>
+            <a href="#contato" class="btn btn-principal">Fale Conosco</a>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <div class="card-sobre">
+            <p>Essa página foi criada para conter informações acerca da empresa CMC Soluções Administrativas Ltda.</p>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="form-container">
+            <h2>Envie uma Mensagem</h2>
+            
+            <form action="mailto:claudiomc.es@gmail.com" method="GET" enctype="text/plain">
+                
+                <div class="form-group">
+                    <input type="text" name="Nome Completo" id="nome" required autocomplete="off">
+                    <label for="nome">Nome Completo</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="subject" id="titulo" required autocomplete="off">
+                    <label for="titulo">Título do Contato</label>
+                </div>
+
+                <div class="form-group">
+                    <textarea name="body" id="mensagem" rows="4" required autocomplete="off"></textarea>
+                    <label for="mensagem">Texto do Contato</label>
+                </div>
+
+                <button type="submit" class="btn-enviar">ENVIAR E-MAIL</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
