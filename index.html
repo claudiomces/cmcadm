@@ -761,17 +761,6 @@ form.addEventListener('submit', async function (e) {
     return;
   }
 
-  /* Modo MOCK — chave ainda não configurada */
-  if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === '502abe33-3baa-4841-a2dc-2c3be26bdaa9') {
-    toast(
-      'Formulário validado com sucesso, mas o envio real ainda não foi ativado. ' +
-      'Configure a Access Key do Web3Forms no início do &lt;script&gt; para começar a receber e-mails.',
-      'info'
-    );
-    console.warn('[CMC] Access Key não configurada. Dados capturados:', data);
-    return;
-  }
-
   submitBtn.disabled = true;
   submitText.innerHTML = '<span class="spinner"></span> Enviando...';
 
