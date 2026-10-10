@@ -1,0 +1,38 @@
+[
+    {
+        "id": "suspensao-1",
+        "name": "Kit Completo de Suspensão Esportiva",
+        "image": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=900&q=85",
+        "details": "Kit completo desenvolvido para estabilidade e conforto em diferentes condições de uso. Inclui amortecedores, molas helicoidais, batentes e buchas de suspensão. Confira a aplicação do veículo e os componentes compatíveis com o modelo antes da instalação."
+    },
+    {
+        "id": "motor-2",
+        "name": "Kit de Revisão de Motor",
+        "image": "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=900&q=85",
+        "details": "Conjunto para manutenção e vedação do motor, com juntas, retentores e anéis de vedação conforme a configuração do kit. Ajuda a restaurar a vedação dos componentes durante a revisão. Verifique o código do motor e o ano do veículo para confirmar a aplicação."
+    },
+    {
+        "id": "freios-3",
+        "name": "Kit de Freios",
+        "image": "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=900&q=85",
+        "details": "Kit de componentes para manutenção do sistema de frenagem, composto por discos e pastilhas compatíveis com a aplicação selecionada. A escolha correta considera modelo, versão e ano do automóvel. A instalação e a inspeção devem ser feitas por profissional qualificado."
+    },
+    {
+        "id": "ignicao-4",
+        "name": "Kit de Ignição (Cabos e Velas)",
+        "image": "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=85",
+        "details": "Conjunto de manutenção do sistema de ignição com jogo de velas e cabos de alta resistência térmica. Contribui para uma centelha regular e o funcionamento adequado do motor. Consulte as especificações do fabricante para conferir a aplicação no seu veículo."
+    },
+    {
+        "id": "correia-5",
+        "name": "Kit de Correia Dentada e Tensor",
+        "image": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=85",
+        "details": "Kit para manutenção do sincronismo do motor, com correia dentada e tensor de precisão. A substituição preventiva conforme a recomendação do fabricante ajuda a preservar o funcionamento sincronizado dos componentes. Confira a aplicação antes da compra e instalação."
+    },
+    {
+        "id": "embreagem-6",
+        "name": "Kit de Embreagem Completo",
+        "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85",
+        "details": "Conjunto de embreagem para reposição, com componentes destinados a proporcionar acoplamento progressivo e transmissão de torque. A composição pode variar conforme o veículo. Confirme modelo, motorização e ano para selecionar o kit correto; instalação recomendada por profissional."
+    }
+]
