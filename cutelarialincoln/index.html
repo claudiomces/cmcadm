@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cutelaria Lincoln - Afiação Profissional</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --red-primary: #C41E2F;
+            --red-dark: #8B0000;
+            --red-light: #E63946;
+            --dark-bg: #2B2B2B;
+            --dark-card: #353535;
+            --white: #FFFFFF;
+            --gray-light: #E8E8E8;
+            --gray-mid: #999999;
+            --silver: #C0C0C0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--dark-bg);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(43, 43, 43, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--red-primary);
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-logo span {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red-primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--red-primary);
+            color: var(--white) !important;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--red-light);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 100px 20px 60px;
+            background:
+                linear-gradient(90deg, rgba(26, 26, 26, 0.92) 0%, rgba(26, 26, 26, 0.78) 45%, rgba(26, 26, 26, 0.3) 100%),
+                url("assets/manicure-hero.jpg") center / cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(196, 30, 47, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(196, 30, 47, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--red-primary);
+        }
+
+        .hero-text .subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: var(--silver);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero-text p {
+            font-size: 1.05rem;
+            color: var(--gray-light);
+            line-height: 1.8;
+            margin-bottom: 35px;
+            max-width: 480px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--red-primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--red-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196, 30, 47, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--silver);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--red-primary);
+            color: var(--red-primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-logo img {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(196, 30, 47, 0.15);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            background: var(--red-primary);
+            padding: 30px 20px;
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 10px;
+        }
+
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.85);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(196, 30, 47, 0.15);
+            color: var(--red-primary);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(196, 30, 47, 0.3);
+        }
+
+        .section-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 span {
+            color: var(--red-primary);
+        }
+
+        .section-header p {
+            color: var(--gray-mid);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: var(--dark-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--dark-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(196, 30, 47, 0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red-primary), var(--red-light));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-body {
+            padding: 28px;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(196, 30, 47, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+            border: 1px solid rgba(196, 30, 47, 0.2);
+        }
+
+        .service-body h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-body p {
+            color: var(--gray-mid);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .service-price {
+            color: var(--red-primary);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: linear-gradient(135deg, #222 0%, #2B2B2B 100%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .about-images img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .about-images img:first-child {
+            grid-column: 1 / -1;
+            height: 260px;
+        }
+
+        .about-images img:not(:first-child) {
+            height: 180px;
+        }
+
+        .about-text h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .about-text h2 span {
+            color: var(--red-primary);
+        }
+
+        .about-text p {
+            color: var(--gray-mid);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .about-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            color: var(--gray-light);
+            font-size: 0.95rem;
+        }
+
+        .about-features li::before {
+            content: '✓';
+            color: var(--red-primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            width: 24px;
+            height: 24px;
+            background: rgba(196, 30, 47, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ===== PROCESS ===== */
+        .process {
+            background: var(--dark-bg);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--red-primary), transparent);
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--dark-card);
+            border: 2px solid var(--red-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--red-primary);
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .process-step p {
+            color: var(--gray-mid);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            background: linear-gradient(135deg, #222 0%, #2B2B2B 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 40%, rgba(196, 30, 47, 0.85));
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            background: var(--dark-bg);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--dark-card);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.06);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 5rem;
+            color: rgba(196, 30, 47, 0.15);
+            line-height: 1;
+        }
+
+        .stars {
+            color: var(--red-primary);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-card p {
+            color: var(--gray-light);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 42px;
+            height: 42px;
+            background: var(--red-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .author-info h5 {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .author-info span {
+            font-size: 0.75rem;
+            color: var(--gray-mid);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2B2B2B 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .contact-info > p {
+            color: var(--gray-mid);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(196, 30, 47, 0.15);
+            border: 1px solid rgba(196, 30, 47, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            font-size: 0.85rem;
+            color: var(--gray-mid);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .contact-item p {
+            font-size: 0.95rem;
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            width: 42px;
+            height: 42px;
+            background: var(--dark-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--red-primary);
+            border-color: var(--red-primary);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: var(--dark-card);
+            border-radius: 14px;
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .contact-form h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--gray-mid);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--dark-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            color: var(--white);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--red-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--red-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: var(--red-light);
+            box-shadow: 0 5px 20px rgba(196, 30, 47, 0.4);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a1a1a;
+            border-top: 2px solid var(--red-primary);
+            padding: 50px 20px 25px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: var(--gray-mid);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            max-width: 280px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            color: var(--white);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--gray-mid);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--red-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-bottom p {
+            color: var(--gray-mid);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom span {
+            color: var(--red-primary);
+        }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 58px;
+            height: 58px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 968px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-text p { margin: 0 auto 35px; }
+            .hero-btns { justify-content: center; }
+            .hero-logo img { max-width: 300px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .process-steps::before { display: none; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--dark-bg);
+                padding: 20px;
+                border-bottom: 2px solid var(--red-primary);
+            }
+            .hero-text h1 { font-size: 2.2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo">
+                <img src="assets/logo2.png" alt="Cutelaria Lincoln">
+                <span>CUTELARIA LINCOLN</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#processo">Processo</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#contato" class="nav-cta">Solicitar Orçamento</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Afiação <span class="highlight">Profissional</span><br>de Precisão</h1>
+                <div class="subtitle">Cutelaria Lincoln</div>
+                <p>Especialistas em afiação de alicates de cutícula, facas, navalhas e lâminas de corte. Tecnologia de ponta, precisão milimétrica e acabamento perfeito para suas ferramentas.</p>
+                <div class="hero-btns">
+                    <a href="#servicos" class="btn btn-primary">Nossos Serviços</a>
+                    <a href="#contato" class="btn btn-outline">Fale Conosco</a>
+                </div>
+            </div>
+            <div class="hero-logo">
+                <img src="assets/logo2.png" alt="Logo Cutelaria Lincoln">
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-label">Anos de Experiência</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="5000">0</div>
+                <div class="stat-label">Ferramentas Afiadas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="98">0</div>
+                <div class="stat-label">% Satisfação</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">h Entrega Rápida</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="services" id="servicos">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">Nossos Serviços</div>
+                <h2>O que nós <span>afiamos</span></h2>
+                <p>Trabalhamos com os mais diversos tipos de ferramentas de corte, utilizando equipamentos profissionais e técnicas refinadas.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="assets/manicure-hero.jpg" alt="Alicate de cutícula em uso durante uma manicure" class="service-img">
+                    <div class="service-body">
+                        <div class="service-icon">✂️</div>
+                        <h3>Alicates de Cutícula</h3>
+                        <p>Afiação precisa para alicates de manicure e pedicure. Bordas perfeitas, corte limpo e alinhamento profissional para não danificar as unhas.</p>
+                        <div class="service-price">Entre em contato para saber mais</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="assets/knife-sharpener.jpg" alt="Equipamento tradicional de afiação de facas" class="service-img">
+                    <div class="service-body">
+                        <div class="service-icon">🔪</div>
+                        <h3>Facas em Geral</h3>
+                        <p>Facas de cozinha, churrasco, caça e pesca. Recuperamos o fio original, removemos lascas e proporcionamos um corte suave e duradouro.</p>
+                        <div class="service-price">Entre em contato para saber mais</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="assets/razor-blades.jpg" alt="Lâminas de barbear" class="service-img">
+                    <div class="service-body">
+                        <div class="service-icon">🪒</div>
+                        <h3>Navalhas & Lâminas</h3>
+                        <p>Navalhas de barbeiro, lâminas de barbear e estiletes. Afiação em pedra natural e couro para um fio extremamente refinado.</p>
+                        <div class="service-price">Entre em contato para saber mais</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="assets/knife-sharpener.jpg" alt="Equipamento tradicional de afiação de facas" class="service-img">
+                    <div class="service-body">
+                        <div class="service-icon">⚙️</div>
+                        <h3>Ferramentas Profissionais</h3>
+                        <p>Tesouras de cabeleireiro, tesouras de poda, machados e ferramentas industriais. Afiação técnica com ângulos específicos para cada uso.</p>
+                        <div class="service-price">Entre em contato para saber mais</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="assets/knife-sharpener.jpg" alt="Equipamento tradicional de afiação de facas" class="service-img">
+                    <div class="service-body">
+                        <div class="service-icon">🍴</div>
+                        <h3>Talheres & Utensílios</h3>
+                        <p>Facas de mesa, garfos, colheres e utensílios de cozinha. Polimento e afiação para deixar seus talheres como novos.</p>
+                        <div class="service-price">Entre em contato para saber mais</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="assets/knife-sharpener.jpg" alt="Equipamento tradicional de afiação de facas" class="service-img">
+                    <div class="service-body">
+                        <div class="service-icon">🪨</div>
+                        <h3>Manutenção Completa</h3>
+                        <p>Limpeza, lubrificação, ajuste de mola e restauração completa de suas ferramentas. Serviço completo de cutelaria.</p>
+                        <div class="service-price">Sob consulta</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="sobre">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-images">
+                    <img src="assets/knife-sharpener.jpg" alt="Equipamento tradicional de afiação de facas">
+                    <img src="assets/manicure-hero.jpg" alt="Alicate de cutícula em uso durante uma manicure">
+                    <img src="assets/knife-sharpener.jpg" alt="Equipamento tradicional de afiação de facas">
+                </div>
+                <div class="about-text">
+                    <div class="section-badge">Sobre Nós</div>
+                    <h2>Tradição e <span>precisão</span> desde o início</h2>
+                    <p>A Cutelaria Lincoln nasceu da paixão pelo ofício de afiar. Com anos de experiência, nos tornamos referência em afiação profissional de ferramentas de corte, atendendo desde manicures e barbeiros até chefs de cozinha e entusiastas.</p>
+                    <p>Utilizamos equipamentos de última geração combinados com técnicas tradicionais de cutelaria, garantindo que cada ferramenta receba o tratamento que merece.</p>
+                    <ul class="about-features">
+                        <li>Equipamentos de precisão importados</li>
+                        <li>Profissionais com anos de experiência</li>
+                        <li>Atendimento personalizado e rápido</li>
+                        <li>Garantia de satisfação em todos os serviços</li>
+                        <li>Preços justos e competitivos</li>
+                        <li>Retirada e entrega em domicílio</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="processo">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">Como Funciona</div>
+                <h2>Nosso <span>processo</span></h2>
+                <p>Trabalhamos com um fluxo otimizado para garantir agilidade sem perder a qualidade que nos define.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Recebimento</h4>
+                    <p>Você traz suas ferramentas ou agendamos a retirada. Fazemos uma avaliação detalhada do estado de cada peça.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Avaliação</h4>
+                    <p>Analisamos o tipo de aço, o desgaste e definimos a melhor técnica de afiação para cada ferramenta.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Afiação</h4>
+                    <p>Executamos a afiação com equipamentos de precisão, respeitando o ângulo ideal de corte de cada ferramenta.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Entrega</h4>
+                    <p>Testamos cada peça, embalamos com cuidado e entregamos suas ferramentas afiadas como novas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="galeria">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">Galeria</div>
+                <h2>Nosso <span>trabalho</span></h2>
+                <p>Conheça um pouco do nosso dia a dia e das ferramentas que passam por nossas mãos.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/knife-sharpener.jpg" alt="Equipamento tradicional de afiação de facas">
+                    <div class="gallery-overlay"><span>Afiação Profissional</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/manicure-hero.jpg" alt="Alicate de cutícula em uso durante uma manicure">
+                    <div class="gallery-overlay"><span>Alicates de Cutícula</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/razor-blades.jpg" alt="Lâminas de barbear">
+                    <div class="gallery-overlay"><span>Navalhas & Barba</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/knife-sharpener.jpg" alt="Equipamento tradicional de afiação de facas">
+                    <div class="gallery-overlay"><span>Pedra Natural</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/knife-sharpener.jpg" alt="Equipamento tradicional de afiação de facas">
+                    <div class="gallery-overlay"><span>Equipamentos</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/manicure-hero.jpg" alt="Alicate de cutícula em uso durante uma manicure">
+                    <div class="gallery-overlay"><span>Manicure & Pedicure</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/knife-sharpener.jpg" alt="Equipamento tradicional de afiação de facas">
+                    <div class="gallery-overlay"><span>Precisão Milimétrica</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/knife-sharpener.jpg" alt="Equipamento tradicional de afiação de facas">
+                    <div class="gallery-overlay"><span>Talheres & Cozinha</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">Depoimentos</div>
+                <h2>O que dizem nossos <span>clientes</span></h2>
+                <p>A satisfação de quem confia seu trabalho à Cutelaria Lincoln é nosso maior orgulho.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Meus alicates de cutícula voltaram como novos! O corte ficou perfeito, preciso. Não confio em ninguém mais com minhas ferramentas de trabalho."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h5>Maria Silva</h5>
+                            <span>Manicure Profissional</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Levei meu jogo de facas de churrasco e fiquei impressionado com o resultado. Corte limpo, rápido e o preço justo. Recomendo de olhos fechados!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <h5>João Santos</h5>
+                            <span>Cliente</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Como barbeiro, preciso de navalhas sempre afiadas. A Cutelaria Lincoln entende do ofício. Atendimento excelente e entrega rápida. Nota 10!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h5>Roberto Lima</h5>
+                            <span>Barbeiro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contato">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">Contato</div>
+                <h2>Fale <span>conosco</span></h2>
+                <p>Entre em contato para solicitar um orçamento ou tirar dúvidas sobre nossos serviços.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Cutelaria Lincoln</h3>
+                    <p>Estamos prontos para atender você com a qualidade e dedicação que seu trabalho merece.</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Endereço</h4>
+                            <p>Rua Exemplo, 123 - Centro<br>São Paulo - SP</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Telefone / WhatsApp</h4>
+                            <p>(11) 99999-9999</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p>contato@cutelarialincoln.com.br</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div>
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 13h</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="Facebook">📘</a>
+                        <a href="#" title="WhatsApp">💬</a>
+                        <a href="#" title="YouTube">▶️</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Solicite um Orçamento</h3>
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" placeholder="Seu nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" placeholder="seu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="servico">Serviço Desejado</label>
+                            <select id="servico" required>
+                                <option value="">Selecione um serviço</option>
+                                <option value="alicate">Alicate de Cutícula</option>
+                                <option value="faca">Facas em Geral</option>
+                                <option value="navalha">Navalhas & Lâminas</option>
+                                <option value="profissional">Ferramentas Profissionais</option>
+                                <option value="talheres">Talheres & Utensílios</option>
+                                <option value="manutencao">Manutenção Completa</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" placeholder="Descreva o que você precisa..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar Solicitação</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="assets/logo.jpg" alt="Cutelaria Lincoln">
+                    <p>Especialistas em afiação profissional de alicates de cutícula, facas, navalhas e lâminas de corte. Qualidade, precisão e confiança.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#servicos">Alicates de Cutícula</a></li>
+                        <li><a href="#servicos">Facas em Geral</a></li>
+                        <li><a href="#servicos">Navalhas & Lâminas</a></li>
+                        <li><a href="#servicos">Ferramentas Profissionais</a></li>
+                        <li><a href="#servicos">Manutenção</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="tel:+5511999999999">(11) 99999-9999</a></li>
+                        <li><a href="mailto:contato@cutelarialincoln.com.br">contato@cutelarialincoln.com.br</a></li>
+                        <li><a href="#">Rua Exemplo, 123 - Centro</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 <span>Cutelaria Lincoln</span>. Todos os direitos reservados.</p>
+                <p>Feito com ❤ e precisão</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank" title="Fale no WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Animated counters
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(animateCounters, 20);
+                } else {
+                    counter.innerText = target.toLocaleString('pt-BR');
+                }
+            });
+        };
+
+        // Intersection Observer for counters
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.stats-bar'));
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            alert(`Obrigado, ${nome}! Sua solicitação foi enviada com sucesso. Entraremos em contato em breve.`);
+            e.target.reset();
+        }
+
+        // Smooth scroll for older browsers
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
